@@ -1,11 +1,12 @@
 def solution(s, skip, index):
     answer = ""
+    alpha = "abcdefghijklmnopqrstuvwxyz"
+    forward = 0
+    for word in skip:
+        alpha = alpha.replace(word, "")
+    forward = len(alpha)
     for word in s:
-        if word in skip:
-            continue
-        change = ord(word)+index
-        answer += (chr(change))
-
+        answer += alpha[(alpha.find(word) + index) % forward]
     return answer
 s = "aukks"
 skip = "wbqd"

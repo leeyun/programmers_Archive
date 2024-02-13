@@ -18,6 +18,3 @@ def solution(keymap, targets):
         else:                
             answer.append(click)
     return answer
-keymap = ["AA"]
-targets = ["B"]
-print(solution(keymap, targets))

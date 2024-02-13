@@ -1,23 +1,21 @@
 def solution(s):
+    main = s[0]
+    length = len(s)
+    syn = 0
+    anti = 0
     answer = 0
-    criterion = s[0]
-    correct = 1
-    incorrect = 0
-    for i in range(1, len(s)):
-        if correct == incorrect:
-            criterion = s[i]
-            answer += 1
-            correct = 0
-            incorrect = 0
-        if criterion == s[i]:
-            correct += 1
+    for i in range(length):
+        if s[i] == main:
+            syn += 1
         else:
-            incorrect += 1
-    if correct == incorrect:
-        answer += 1
-    if criterion == s[-1]:
+            anti += 1
+        if syn == anti:
+            answer += 1
+            if i + 1 == length:
+                break
+            else:
+                main = s[i + 1]
+    if syn != anti:
         answer += 1
     return answer
-s = "aaabbaccccabbaaaaa"
-print(solution(s))
 

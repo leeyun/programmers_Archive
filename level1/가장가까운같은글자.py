@@ -9,6 +9,3 @@ def solution(s):
             answer.append(index -alpha[word])
             alpha[word] = index
     return answer
-s = "poopppoop"
-answer = solution(s)
-print(answer)

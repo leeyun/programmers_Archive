@@ -2,15 +2,11 @@ def solution(babbling):
     answer = 0
     pron = ["aya", "ye", "woo", "ma"]
     for b in babbling:
-        temp = ""
-        word = ""
-        for alpha in b:
-            temp += alpha
-            if temp in pron:
-                if word == temp:
-                    
-                word = temp
-            
+        for p in pron:
+            if p*2 not in b:
+                b = b.replace(p, " ")
+        if b.isspace():
+            answer += 1
     return answer
 babbling = ["ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"]
 print(solution(babbling))
